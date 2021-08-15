@@ -10,43 +10,34 @@
 namespace WebApplication1 {
     
     
-    public partial class Forum {
+    public partial class Topic {
         
         /// <summary>
-        /// Label1 控件。
+        /// author_image1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Image author_image1;
         
         /// <summary>
-        /// NAAenable 控件。
+        /// author_name1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox NAAenable;
+        protected global::System.Web.UI.WebControls.Label author_name1;
         
         /// <summary>
-        /// Refresh 控件。
+        /// topic_date1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Refresh;
-        
-        /// <summary>
-        /// NewTopic 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewTopic;
+        protected global::System.Web.UI.WebControls.Label topic_date1;
         
         /// <summary>
         /// Panel1 控件。
@@ -56,5 +47,32 @@ namespace WebApplication1 {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// topic_title1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label topic_title1;
+        
+        /// <summary>
+        /// topic_details 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label topic_details;
+        
+        /// <summary>
+        /// view_details 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button view_details;
     }
 }

@@ -23,12 +23,12 @@ namespace WebApplication1
         {
 
             forum_index = index;
-            InitializeComponent();
-            this.forum_name.Text = name; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
+            
+            Label1.Text = name; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
 
             if (Global.userData.user_account_status != "admin")
             {
-                newTopic.Hide();
+                NewTopic.Visible = false;
             }
 
             //MessageBox.Show("Wrong username or password. Please try again.", "Login Result");
@@ -68,6 +68,7 @@ namespace WebApplication1
             public string rtf_file_url { get; set; }
         };
 
+        /**
         private void newTopic_Click(object sender, EventArgs e)
         {
             newTopic new_topic = new newTopic(forum_index);
@@ -100,6 +101,7 @@ namespace WebApplication1
 
             }
         }
+        **/
 
         private void loadNormalEvent()
         {
@@ -143,7 +145,7 @@ namespace WebApplication1
                     if (myDeserializedClass.TopicsData[i].rtf_file_url != null)
                     {
                         m.downloadFile(myDeserializedClass.TopicsData[i].rtf_file_url, str);
-                        this.flowLayoutPanel1.Controls.Add(test);
+                        this.Panel1.Controls.Add(test);
                     }
 
                 }
@@ -192,22 +194,19 @@ namespace WebApplication1
                     if (myDeserializedClass.TopicsData[i].rtf_file_url != null)
                     {
                         m.downloadFile(myDeserializedClass.TopicsData[i].rtf_file_url, str);
-                        this.flowLayoutPanel1.Controls.Add(test1);
+                        this.Panel1.Controls.Add(test1);
                     }
 
-                    this.flowLayoutPanel1.Controls.Add(test1);
+                    this.Panel1.Controls.Add(test1);
                 }
             }
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        private void refresh_button_Click(object sender, EventArgs e)
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.flowLayoutPanel1.Controls.Clear();
+            this.Panel1.Controls.Clear();
             if (NAAenable.Checked == true)
             {
                 loadNAAEvent();
@@ -217,8 +216,6 @@ namespace WebApplication1
                 loadNormalEvent();
 
             }
-
         }
-
     }
 }
