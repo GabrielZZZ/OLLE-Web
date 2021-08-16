@@ -19,23 +19,22 @@ namespace WebApplication1
     {
         private int forum_index; // the number decides the category of the forum -> refer to the item in the menu page
 
-        public Forum(int index, string name)
+        
+
+        protected void Page_Load(object sender, EventArgs e)
         {
+            forum_index = int.Parse(Request.QueryString["forum_index"]);
 
-            forum_index = index;
-            
-            Label1.Text = name; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
+            //Label1.Text = name; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
 
-            if (Global.userData.user_account_status != "admin")
+            Global.UserData userdata = Session["userData"] as Global.UserData;
+
+            if (userdata.user_account_status != "admin")
             {
                 NewTopic.Visible = false;
             }
 
-            //MessageBox.Show("Wrong username or password. Please try again.", "Login Result");
-        }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
             loadNormalEvent();
         }
 

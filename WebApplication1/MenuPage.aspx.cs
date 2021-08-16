@@ -16,8 +16,8 @@ namespace WebApplication1
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-            Forum forum = new Forum(0, "Open Learning Log");
-            Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath);
+            //Forum forum = new Forum(0, "Open Learning Log");
+            Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 0);
         }
     }
 }

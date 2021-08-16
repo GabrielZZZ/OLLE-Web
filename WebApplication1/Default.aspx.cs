@@ -75,7 +75,9 @@ namespace WebApplication1
                 return "Wrong Password";
             }
             {
-                Global.userData = Global.TransferJson(result);
+                Global.UserData userData = Global.TransferJson(result);
+
+                Session["userData"] = userData; // store userData into Session
 
                 return result;
             }
