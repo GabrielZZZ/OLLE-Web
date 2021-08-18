@@ -25,11 +25,11 @@ namespace WebApplication1
         {
             forum_index = int.Parse(Request.QueryString["forum_index"]);
 
-            //Label1.Text = name; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
+            Label1.Text = Request.QueryString["label_name"]; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
 
             Global.UserData userdata = Session["userData"] as Global.UserData;
 
-            if (userdata.user_account_status != "admin")
+            if (userdata.user_account_status == "admin")
             {
                 NewTopic.Visible = false;
             }
@@ -126,17 +126,25 @@ namespace WebApplication1
                 TransferUploadObjectModel m = new TransferUploadObjectModel();
                 string str = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\OLLE\\";
 
+                // store the information into session
+                //Session["topic_lists"] = myDeserializedClass.TopicsData;
+
                 //create topics panel
                 for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
                 {
+
+                    Topic test = (Topic)Page.LoadControl("Topic.ascx");
+
+
                     //UserControl1 test = new UserControl1();
-                    Topic test = new Topic();
+                    //Topic test = new Topic();
                     //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
                     test.topic_id = myDeserializedClass.TopicsData[i].topic_id;
                     test.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
                     test.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
                     test.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
-                    test.TopicDetails = Global.changeCharacterBack(myDeserializedClass.TopicsData[i].topic_detail);
+                    test.ChangeTopicDetails(Global.changeCharacterBack(myDeserializedClass.TopicsData[i].topic_detail));
+                    //test.TopicDetails = Global.changeCharacterBack(myDeserializedClass.TopicsData[i].topic_detail);
                     test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
                     test.files_url = myDeserializedClass.TopicsData[i].files_url;
                     test.rtf_file_url = str + Path.GetFileName(myDeserializedClass.TopicsData[i].rtf_file_url);
@@ -144,7 +152,8 @@ namespace WebApplication1
                     if (myDeserializedClass.TopicsData[i].rtf_file_url != null)
                     {
                         m.downloadFile(myDeserializedClass.TopicsData[i].rtf_file_url, str);
-                        this.Panel1.Controls.Add(test);
+                        this.ph1.Controls.Add(test);
+                        
                     }
 
                 }
@@ -179,13 +188,13 @@ namespace WebApplication1
                 for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
                 {
                     //UserControl1 test = new UserControl1();
-                    Topic test1 = new Topic();
+                    Topic test1 = (Topic)Page.LoadControl("Topic.ascx");
                     test1.topic_type = myDeserializedClass.TopicsData[i].topic_type;
                     //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
                     test1.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
                     test1.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
                     test1.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
-                    test1.TopicDetails = Global.changeCharacterBack(myDeserializedClass.TopicsData[i].topic_detail);
+                    test1.ChangeTopicDetails(Global.changeCharacterBack(myDeserializedClass.TopicsData[i].topic_detail));
                     test1.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
                     test1.topic_id = myDeserializedClass.TopicsData[i].topic_id;
                     test1.rtf_file_url = str + Path.GetFileName(myDeserializedClass.TopicsData[i].rtf_file_url);
@@ -193,10 +202,10 @@ namespace WebApplication1
                     if (myDeserializedClass.TopicsData[i].rtf_file_url != null)
                     {
                         m.downloadFile(myDeserializedClass.TopicsData[i].rtf_file_url, str);
-                        this.Panel1.Controls.Add(test1);
+                        this.ph1.Controls.Add(test1);
                     }
 
-                    this.Panel1.Controls.Add(test1);
+                    this.ph1.Controls.Add(test1);
                 }
             }
         }
@@ -205,7 +214,7 @@ namespace WebApplication1
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.Panel1.Controls.Clear();
+            this.ph1.Controls.Clear();
             if (NAAenable.Checked == true)
             {
                 loadNAAEvent();

@@ -14,6 +14,8 @@ namespace WebApplication1
         public int topic_type;
         public string rtf_file_url = "";
 
+        private string topic_details_simple = "";//if the detail is too large, replace the rest with ...
+
         public string TopicAuthor
         {
             get { return author_name1.Text; }
@@ -32,6 +34,17 @@ namespace WebApplication1
         {
             get { return topic_details.Text; }
             set { topic_details.Text = value; }
+
+        }
+
+        public void ChangeTopicDetails(string value)
+        {
+            int max_length = 150; // max length - 50 characters
+
+            if (value.Length >= max_length)
+            {
+                topic_details.Text = value.Substring(0, max_length) + "...";
+            }
 
         }
 
@@ -61,9 +74,10 @@ namespace WebApplication1
         }
 
 
-        /**
+        
         protected void view_details_Click(object sender, EventArgs e)
         {
+            /**
             TopicDetailsPage Detail_page = new TopicDetailsPage();
 
             //pass image to TopicDetailPage
@@ -94,8 +108,9 @@ namespace WebApplication1
 
             //show TopicDetailPage
             Detail_page.ShowDialog();
-        }
     **/
+        }
+    
 
     }
 }
