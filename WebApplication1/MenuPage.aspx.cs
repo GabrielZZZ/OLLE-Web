@@ -19,5 +19,29 @@ namespace WebApplication1
             //Forum forum = new Forum(0, "Open Learning Log");
             Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 0 + "&label_name=Forum");
         }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            // open Calendar
+            //Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 1 + "&label_name=Forum");
+        }
+
+        protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
+        {
+            // open Announcement
+            Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 1 + "&label_name=Forum");
+        }
+
+        protected void ImageButton5_Click(object sender, ImageClickEventArgs e)
+        {
+            // open Troubleshoots
+            Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 2 + "&label_name=Forum");
+        }
+
+        protected void ImageButton6_Click(object sender, ImageClickEventArgs e)
+        {
+            // open Feedback
+            Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 3 + "&label_name=Forum");
+        }
     }
 }

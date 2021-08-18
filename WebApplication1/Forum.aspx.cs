@@ -29,7 +29,7 @@ namespace WebApplication1
 
             Global.UserData userdata = Session["userData"] as Global.UserData;
 
-            if (userdata.user_account_status == "admin")
+            if (userdata.user_account_status != "admin")
             {
                 NewTopic.Visible = false;
             }
@@ -211,8 +211,24 @@ namespace WebApplication1
         }
 
 
-
+        
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ph1.Controls.Clear();
+            if (NAAenable.Checked == true)
+            {
+                loadNAAEvent();
+            }
+            else
+            {
+                loadNormalEvent();
+
+            }
+        }
+        
+
+
+        protected void Refresh_Click(object sender, EventArgs e)
         {
             this.ph1.Controls.Clear();
             if (NAAenable.Checked == true)

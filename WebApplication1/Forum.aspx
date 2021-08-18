@@ -14,7 +14,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
     <asp:CheckBox ID="NAAenable" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="NAA" />
-&nbsp;<asp:Button ID="Refresh" runat="server" Text="Refresh" />
+&nbsp;<asp:Button ID="Refresh" runat="server" Text="Refresh" OnClick="Refresh_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="NewTopic" runat="server" Text="New Topic" />
     <br />

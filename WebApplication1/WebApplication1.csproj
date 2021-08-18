@@ -145,6 +145,7 @@
     <Content Include="Images\word.png" />
     <Content Include="Images\下载.png" />
     <Content Include="MenuPage.aspx" />
+    <Content Include="Reply.ascx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -175,6 +176,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Topic.ascx" />
+    <Content Include="TopicDetailsPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -222,6 +224,13 @@
       <DependentUpon>MenuPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply.ascx.cs">
+      <DependentUpon>Reply.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reply.ascx.designer.cs">
+      <DependentUpon>Reply.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -242,6 +251,13 @@
     </Compile>
     <Compile Include="Topic.ascx.designer.cs">
       <DependentUpon>Topic.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicDetailsPage.aspx.cs">
+      <DependentUpon>TopicDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicDetailsPage.aspx.designer.cs">
+      <DependentUpon>TopicDetailsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransferUploadObjectModel.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
