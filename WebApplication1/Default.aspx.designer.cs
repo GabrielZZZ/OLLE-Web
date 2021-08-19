@@ -10,7 +10,7 @@
 namespace WebApplication1 {
     
     
-    public partial class _Default {
+    public partial class Default {
         
         /// <summary>
         /// username 控件。

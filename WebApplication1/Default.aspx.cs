@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace WebApplication1
                     //Forum forum = new Forum();
                     //forum.ShowDialog();
 
-                    MenuPage menuPage = new MenuPage();
+                    //MenuPage menuPage = new MenuPage();
                     Response.Redirect("MenuPage.aspx?url=" + Request.CurrentExecutionFilePath);
 
                     //forum.Show();

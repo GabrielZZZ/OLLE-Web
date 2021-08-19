@@ -3,6 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+     <br />
      <asp:Image ID="author_image1" runat="server" class="img-responsive" Height="50px" Width="50px" />
 
     <asp:Label ID="author_name1" runat="server" Text="author_name" Font-Italic="True" ForeColor="Blue"></asp:Label>

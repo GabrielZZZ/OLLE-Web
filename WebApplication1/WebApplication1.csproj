@@ -145,6 +145,7 @@
     <Content Include="Images\word.png" />
     <Content Include="Images\下载.png" />
     <Content Include="MenuPage.aspx" />
+    <Content Include="NewTopic.aspx" />
     <Content Include="Reply.ascx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -222,6 +223,13 @@
     </Compile>
     <Compile Include="MenuPage.aspx.designer.cs">
       <DependentUpon>MenuPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTopic.aspx.cs">
+      <DependentUpon>NewTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTopic.aspx.designer.cs">
+      <DependentUpon>NewTopic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply.ascx.cs">

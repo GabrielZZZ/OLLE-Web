@@ -35,7 +35,17 @@ namespace WebApplication1
             }
 
 
-            loadNormalEvent();
+            //loadNormalEvent();
+            //loadNAAEvent();
+            if (NAAenable.Checked == true)
+            {
+                loadNAAEvent();
+            }
+            else
+            {
+                loadNormalEvent();
+
+            }
         }
 
         public class Root
@@ -67,40 +77,14 @@ namespace WebApplication1
             public string rtf_file_url { get; set; }
         };
 
-        /**
-        private void newTopic_Click(object sender, EventArgs e)
+        
+        protected void newTopic_Click(object sender, EventArgs e)
         {
-            newTopic new_topic = new newTopic(forum_index);
-            DialogResult result = MessageBox.Show("Is it a NAA Topic?", "NAA Topic Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-
-                new_topic.topic_tag = 1;
-            }
-            else
-            {
-
-                new_topic.topic_tag = 0;
-            }
-
-
-            new_topic.ShowDialog();
+            
+            
+            Response.Redirect("NewTopic.aspx?url=" + Request.CurrentExecutionFilePath + "&TopicType=" + forum_index);
         }
-
-        private void NAAenable_CheckedChanged(object sender, EventArgs e)
-        {
-            if (NAAenable.Checked == true)
-            {
-                loadNAAEvent();
-            }
-            else if (NAAenable.Checked == false)
-            {
-                this.flowLayoutPanel1.Controls.Clear();
-                loadNormalEvent();
-
-            }
-        }
-        **/
+        
 
         private void loadNormalEvent()
         {
@@ -214,6 +198,7 @@ namespace WebApplication1
         
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
+            /**
             this.ph1.Controls.Clear();
             if (NAAenable.Checked == true)
             {
@@ -224,6 +209,7 @@ namespace WebApplication1
                 loadNormalEvent();
 
             }
+    **/
         }
         
 

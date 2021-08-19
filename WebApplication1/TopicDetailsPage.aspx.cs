@@ -50,6 +50,8 @@ namespace WebApplication1
             topic_title1.Text = Request.QueryString["Topic_Title"];
             topic_details.Text = Session["TopicDetail"].ToString();
 
+            topic_id = int.Parse(Request.QueryString["TopicID"]);
+
             Session["TopicDetail"] = null;//release Session
 
 
