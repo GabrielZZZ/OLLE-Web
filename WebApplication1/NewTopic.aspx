@@ -10,6 +10,21 @@
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="week_label" runat="server" Text="Week Select"></asp:Label>
         <asp:DropDownList ID="week_select" runat="server">
+            <asp:ListItem Value="1"></asp:ListItem>
+            <asp:ListItem Value="2"></asp:ListItem>
+            <asp:ListItem Value="3"></asp:ListItem>
+            <asp:ListItem Value="4"></asp:ListItem>
+            <asp:ListItem Value="5"></asp:ListItem>
+            <asp:ListItem Value="6"></asp:ListItem>
+            <asp:ListItem Value="7"></asp:ListItem>
+            <asp:ListItem Value="8"></asp:ListItem>
+            <asp:ListItem Value="9"></asp:ListItem>
+            <asp:ListItem Value="10"></asp:ListItem>
+            <asp:ListItem Value="11"></asp:ListItem>
+            <asp:ListItem Value="12"></asp:ListItem>
+            <asp:ListItem Value="13"></asp:ListItem>
+            <asp:ListItem Value="14"></asp:ListItem>
+            <asp:ListItem Value="15"></asp:ListItem>
         </asp:DropDownList>
     &nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label4" runat="server" Text="NAA Topic?"></asp:Label>
@@ -40,8 +55,9 @@
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="Label3" runat="server" Text="Files Upload"></asp:Label>
     </p>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+        
+            <INPUT id="oFile" type="file" runat="server" NAME="oFile" aria-multiselectable="True">
+        
     </p>
 
 

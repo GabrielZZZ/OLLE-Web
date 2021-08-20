@@ -188,10 +188,19 @@ namespace WebApplication1
             }
         }
 
+        private void getFileNameAndSource()
+        {
+            // Retrieve the name of the file that is posted.
+            string strFileName = oFile.PostedFile.FileName;
+            strFileName = Path.GetFileName(strFileName);
+
+            string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + strFileName + ";";
+            file_names_total += file_address;
+        }
+
         private string post_user_info_new_page(string title, string content)
         {
             string type = "createPage";
-
 
             string url = Global.host_url + type;//地址
 
@@ -202,6 +211,8 @@ namespace WebApplication1
 
                 return "Post Error!";
             }
+
+            getFileNameAndSource();
 
             int page_week = Convert.ToInt32(week_select.SelectedItem.ToString());
             string page_date = DateTime.Now.ToString("yyyy-MM-dd");//get current time
@@ -272,11 +283,13 @@ namespace WebApplication1
 
             string url = Global.host_url + type;//地址
             string topic_id = "";
-            string topic_week = "0";
+            string topic_week = week_select.SelectedValue;
+
             Global.UserData userdata = Session["userData"] as Global.UserData;
             string profile_photo = userdata.profile_photo;
             string topic_date = DateTime.Now.ToString("yyyy-MM-dd");//get current time
 
+            getFileNameAndSource();
 
             int user_id = userdata.user_id;
             string post_username = userdata.username;
