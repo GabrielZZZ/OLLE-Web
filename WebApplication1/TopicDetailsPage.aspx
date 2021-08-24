@@ -1,5 +1,6 @@
-﻿<%@ Page Title="Forum" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TopicDetailsPage.aspx.cs" Inherits="WebApplication1.TopicDetailsPage" %>
+﻿<%@ Page Title="Forum" Language="C#" MaintainScrollPositionOnPostBack="true" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TopicDetailsPage.aspx.cs" Inherits="WebApplication1.TopicDetailsPage" %>
 <%@ Register Src="~/Reply.ascx" TagName="ReplyControl" TagPrefix="TReplyControl" %>
+<%@ Register Src="~/FileIcon.ascx" TagName="FileIconControl" TagPrefix="TFileIconControl" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -13,6 +14,16 @@
 
     <asp:Label ID="topic_title1" runat="server" Text="topic title" Font-Bold="True" Font-Size="Large"></asp:Label>&nbsp;<br /><asp:Label ID="topic_details" runat="server" Text="No Content" BorderColor="Black" BorderStyle="Dashed"></asp:Label>
 
+     <br />
+     <br />
+
+    
+    <asp:PlaceHolder ID="fileLayoutPanel" runat="server">
+        
+    </asp:PlaceHolder>
+    <br />
+    
+    <asp:Button ID="downloadFile" runat="server" Text="Download" OnClick="downloadFile_Click1" />
      <br />
      <br />
 

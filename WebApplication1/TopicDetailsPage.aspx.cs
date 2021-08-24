@@ -29,36 +29,79 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //change author image
-            try
+            if (!IsPostBack)
             {
-                author_image1.ImageUrl = Request.QueryString["AuthorImage"];
+                // the code that only needs to run once goes here
+                //change author image
+                try
+                {
+                    author_image1.ImageUrl = Request.QueryString["AuthorImage"];
+
+                }
+                catch (Exception ex)
+                {
+                    //显示本地默认图片
+                    author_image1.ImageUrl = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/OLLE.png";
+                    //author_image1.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
+                }
+
+                author_name1.Text = Request.QueryString["AuthorName"];
+
+                topic_date1.Text = Request.QueryString["Date"];
+
+                topic_date1.Text = Request.QueryString["Date"];
+                topic_title1.Text = Request.QueryString["Topic_Title"];
+                topic_details.Text = Session["TopicDetail"].ToString();
+
+                topic_id = int.Parse(Request.QueryString["TopicID"]);
+
+                Session["TopicDetail"] = null;//release Session
+
+
+                getPostedReply();
+
+                AddFilePanel(Request.QueryString["files_url"]);
+            }
+           
+        }
+
+        // add file panel
+        public void AddFilePanel(string files_url)
+        {
+            if (files_url == "")
+            {
+                Label label2 = new Label();
+                label2.Text = "There is nothing here";
+                //label2.AutoSize = true;
+                fileLayoutPanel.Controls.Add(label2);
+                return;
+            }
+
+            files_url_split = files_url.Split(';');
+
+
+
+            // add fileIcon control in selectFilePanel
+            for (int i = 0; i < files_url_split.Length - 1; i++)
+            {
+                FileIcon fileIcon = (FileIcon)Page.LoadControl("FileIcon.ascx");
+
+                string test = Path.GetExtension(files_url_split[i]);
+                fileIcon.ChangeFileIconImage(Path.GetExtension(files_url_split[i]));
+                //fileIcon.FileName = Path.GetFileName(files_url_split[i]);
+                fileIcon.ChangeFileName(Path.GetFileName(files_url_split[i]));
+
+                fileIcon.file_path = files_url_split[i];
+
+                //fileIcon.Scale(new SizeF(0.5f, 0.5f));
+                fileLayoutPanel.Controls.Add(fileIcon);
 
             }
-            catch (Exception ex)
-            {
-                //显示本地默认图片
-                author_image1.ImageUrl = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/OLLE.png";
-                //author_image1.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
-            }
-
-            author_name1.Text = Request.QueryString["AuthorName"];
-
-            topic_date1.Text = Request.QueryString["Date"];
-
-            topic_date1.Text = Request.QueryString["Date"];
-            topic_title1.Text = Request.QueryString["Topic_Title"];
-            topic_details.Text = Session["TopicDetail"].ToString();
-
-            topic_id = int.Parse(Request.QueryString["TopicID"]);
-
-            Session["TopicDetail"] = null;//release Session
-
-
-            getPostedReply();
-
 
         }
+
+
+
 
         public class PostedReplyData
         {
@@ -102,7 +145,7 @@ namespace WebApplication1
                 errorMessage = Global.Reverse(errorMessage);
 
                 //errorMessage.Remove()
-                
+
                 Response.Write("<script   language='javascript'>alert(errorMessage);</script>");
                 return;
             }
@@ -120,7 +163,7 @@ namespace WebApplication1
                         for (int i = 0; i < myDeserializedClass.PostedReplyData.Count; i++)
                         {
                             //UserControl1 test = new UserControl1();
-                            
+
                             Reply test = (Reply)Page.LoadControl("Reply.ascx");
                             //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
                             test.ChangeAuthorImage(myDeserializedClass.PostedReplyData[i].profile_photo);
@@ -144,6 +187,21 @@ namespace WebApplication1
 
                 return;
             }
-        } 
+        }
+
+
+
+        protected void downloadFile_Click1(object sender, EventArgs e)
+        {
+
+            files_url_split = Request.QueryString["files_url"].Split(';');
+            for (int i = 0; i < files_url_split.Length - 1; i++)
+            {
+                using (WebClient web1 = new WebClient())
+                    web1.DownloadFile(files_url_split[i], Path.GetFileName(files_url_split[i]));
+
+
+            }
+        }
     }
 }

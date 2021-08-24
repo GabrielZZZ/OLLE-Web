@@ -79,7 +79,7 @@ namespace WebApplication1
         protected void view_details_Click(object sender, EventArgs e)
         {
             Session["TopicDetail"] = Global.changeCharacterBack(topic_details_simple);
-            Response.Redirect("TopicDetailsPage.aspx?url=" + Request.CurrentExecutionFilePath + "&AuthorImage=" + author_image1.ImageUrl + "&AuthorName=" + author_name1.Text + "&Date=" + topic_date1.Text + "&Topic_Title=" + topic_title1.Text + "&TopicID=" + topic_id + "&RTF_URL=" + rtf_file_url);
+            Response.Redirect("TopicDetailsPage.aspx?url=" + Request.CurrentExecutionFilePath + "&AuthorImage=" + author_image1.ImageUrl + "&files_url=" + files_url +  "&AuthorName=" + author_name1.Text + "&Date=" + topic_date1.Text + "&Topic_Title=" + topic_title1.Text + "&TopicID=" + topic_id + "&RTF_URL=" + rtf_file_url);
             /**
             TopicDetailsPage Detail_page = new TopicDetailsPage();
 

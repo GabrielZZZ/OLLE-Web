@@ -192,10 +192,13 @@ namespace WebApplication1
         {
             // Retrieve the name of the file that is posted.
             string strFileName = oFile.PostedFile.FileName;
+            string strFilePath = Path.GetFullPath(strFileName);
             strFileName = Path.GetFileName(strFileName);
+
 
             string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + strFileName + ";";
             file_names_total += file_address;
+            src_path_total.Add(strFilePath);
         }
 
         private string post_user_info_new_page(string title, string content)
@@ -255,6 +258,8 @@ namespace WebApplication1
             {
                 TransferUploadObjectModel m = new TransferUploadObjectModel();
                 m.TransferBatchUploadObjects(file_path_total, src_path_total);
+                Response.Write("<script   language='javascript'>confirm('Upload Success!');</script>");
+
             }
 
 
@@ -407,62 +412,7 @@ namespace WebApplication1
 
         }
 
-        /**
-        private void uploadFile_Click(object sender, EventArgs e)
-        {
-
-            //初始化一个OpenFileDialog类
-            OpenFileDialog fileDialog = new OpenFileDialog();
-
-            // enable multi-select
-            fileDialog.Multiselect = true;
-            fileDialog.Filter = "supported type|*.docx;*.pptx;*.pdf;*.mp4";
-
-            //判断用户是否正确的选择了文件
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // IMPORTANT: users shall make no space among filenames and use all the English characters
-
-                string[] srcPaths = new string[fileDialog.FileNames.Length];
-                string[] fileNames = new string[fileDialog.FileNames.Length];
-
-                for (int i = 0; i < fileDialog.FileNames.Length; i++)
-                {
-                    srcPaths[i] = Path.GetFullPath(fileDialog.FileNames[i]);//绝对路径
-                    fileNames[i] = "test/" + Path.GetFileName(fileDialog.FileNames[i]);
-
-                    // add to golbal variables
-                    src_path_total.Add(srcPaths[i]);
-                    file_path_total.Add(fileNames[i]);
-                }
-
-
-                // add fileIcon control in selectFilePanel
-                for (int i = 0; i < fileDialog.FileNames.Length; i++)
-                {
-                    FileIcon fileIcon = new FileIcon();
-                    string test = Path.GetExtension(fileDialog.FileNames[i]);
-                    fileIcon.ChangeFileIconImage(Path.GetExtension(fileDialog.FileNames[i]));
-                    fileIcon.FileName = Path.GetFileName(fileDialog.FileNames[i]);
-                    this.selectFilePanel.Controls.Add(fileIcon);
-
-                }
-
-                //MessageBox.Show(file_Name);
-                //m.TransferBatchUploadObjects(fileNames, srcPaths);
-
-                // handle the filenames to store them into the database
-                for (int i = 0; i < srcPaths.Length; i++)
-                {
-                    // get the http address of each file uploaded to the bucket
-                    string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + fileNames[i] + ";"; // ";" is used to split
-                    file_names_total += file_address;
-                }
-
-            }
-
-        }
-    **/
+        
         private void contentBox_TextChanged(object sender, EventArgs e)
         {
             // contentBox.SelectAll();

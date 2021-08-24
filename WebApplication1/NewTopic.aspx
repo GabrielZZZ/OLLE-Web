@@ -55,8 +55,8 @@
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="Label3" runat="server" Text="Files Upload"></asp:Label>
     </p>
-        
-            <INPUT id="oFile" type="file" runat="server" NAME="oFile" aria-multiselectable="True">
+            Select the file to upload to the server:
+            <INPUT id="oFile" type="file" runat="server" NAME="oFile" multiple>
         
     </p>
 

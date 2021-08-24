@@ -13,11 +13,8 @@ using COSXML.Model.Service;
 using COSXML.Utils;
 using COSXML.Auth;
 using COSXML.Transfer;
-using System;
 using COSXML;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -176,6 +173,7 @@ namespace WebApplication1
             }
             //.cssg-snippet-body-end
             //MessageBox.Show("Upload Successfully!");
+
         }
 
         /**
