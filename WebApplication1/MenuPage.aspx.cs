@@ -43,5 +43,11 @@ namespace WebApplication1
             // open Feedback
             Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 3 + "&label_name=Forum");
         }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            // open Training
+            Response.Redirect("Pages.aspx?url=" + Request.CurrentExecutionFilePath);
+        }
     }
 }

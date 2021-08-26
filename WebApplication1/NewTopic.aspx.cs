@@ -28,6 +28,7 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             topic_type = int.Parse(Request.QueryString["TopicType"]);
+            post_type = int.Parse(Request.QueryString["PostType"]);
 
             if (post_type == 0)
             {

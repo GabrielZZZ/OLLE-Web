@@ -90,6 +90,13 @@ namespace WebApplication1
 
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            // sign up
+            Response.Redirect("SignUp.aspx?url=" + Request.CurrentExecutionFilePath);
+
+        }
+
         /**
         private void Login_Load(object sender, EventArgs e)
         {

@@ -8,7 +8,7 @@
 &nbsp;&nbsp;&nbsp; Forum</p>
     <p>&nbsp;<asp:ImageButton ID="ImageButton2" runat="server" AlternateText="Forum" Height="73px" ImageUrl="~/Images/calendar.png" Width="73px" OnClick="ImageButton2_Click" />
         &nbsp;&nbsp;&nbsp; Calendar</p>
-    <p>&nbsp;<asp:ImageButton ID="ImageButton3" runat="server" AlternateText="Forum" Height="73px" ImageUrl="~/Images/main_page.png" Width="73px" />
+    <p>&nbsp;<asp:ImageButton ID="ImageButton3" runat="server" AlternateText="Forum" Height="73px" ImageUrl="~/Images/main_page.png" Width="73px" OnClick="ImageButton3_Click" />
         &nbsp;&nbsp;&nbsp; Training</p>
     <p>&nbsp;<asp:ImageButton ID="ImageButton4" runat="server" AlternateText="Forum" Height="73px" ImageUrl="~/Images/forum.png" Width="73px" OnClick="ImageButton4_Click" />
         &nbsp;&nbsp;&nbsp; Announcement</p>

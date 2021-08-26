@@ -25,12 +25,13 @@ namespace WebApplication1
 
         public string rtf_file_url;
 
-        public bool pageOrNot = false;
+        public int pageOrNot = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                pageOrNot = int.Parse(Request.QueryString["pageOrNot"]);
                 // the code that only needs to run once goes here
                 //change author image
                 try
@@ -45,20 +46,24 @@ namespace WebApplication1
                     //author_image1.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
                 }
 
+                if(pageOrNot == 0)
+                {
+                    topic_id = int.Parse(Request.QueryString["TopicID"]);
+                    getPostedReply();
+
+                }
+
                 author_name1.Text = Request.QueryString["AuthorName"];
 
                 topic_date1.Text = Request.QueryString["Date"];
 
-                topic_date1.Text = Request.QueryString["Date"];
                 topic_title1.Text = Request.QueryString["Topic_Title"];
                 topic_details.Text = Session["TopicDetail"].ToString();
 
-                topic_id = int.Parse(Request.QueryString["TopicID"]);
 
                 Session["TopicDetail"] = null;//release Session
 
 
-                getPostedReply();
 
                 AddFilePanel(Request.QueryString["files_url"]);
             }
@@ -74,6 +79,7 @@ namespace WebApplication1
                 label2.Text = "There is nothing here";
                 //label2.AutoSize = true;
                 fileLayoutPanel.Controls.Add(label2);
+                downloadFile.Visible = false;
                 return;
             }
 

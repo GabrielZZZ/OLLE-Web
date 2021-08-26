@@ -82,7 +82,7 @@ namespace WebApplication1
         {
             
             
-            Response.Redirect("NewTopic.aspx?url=" + Request.CurrentExecutionFilePath + "&TopicType=" + forum_index);
+            Response.Redirect("NewTopic.aspx?url=" + Request.CurrentExecutionFilePath + "&TopicType=" + forum_index + "&PostType=" + 0);
         }
         
 
