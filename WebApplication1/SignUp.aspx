@@ -37,7 +37,7 @@
 
     <br />
         Select the file to upload to the server:
-            <INPUT id="oFile" type="file" runat="server" NAME="oFile" multiple>
+            <INPUT id="oFile" type="file" runat="server" NAME="oFile" multiple accept="image/png, image/jpeg">
 
     <br />
     <br />

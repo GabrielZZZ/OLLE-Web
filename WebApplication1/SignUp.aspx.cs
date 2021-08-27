@@ -55,6 +55,19 @@ namespace WebApplication1
             string type = "signup";
             string url = Global.host_url + type;//地址
 
+            
+            if (profile_photo == "")
+            {
+                Response.Write("<script   language='javascript'>alert('Please select the profile photo.');</script>");
+                return;
+            }
+            else
+            {
+                TransferUploadObjectModel m = new TransferUploadObjectModel();
+                m.TransferBatchUploadObjects(file_path_total, src_path_total);
+            }
+           
+
             string paramStr = "{\"username\":\"" + username + "\"," +
                                 "\"name\":\"" + name + "\"," +
                                  "\"surname\":\"" + surname + "\"," +
@@ -99,7 +112,7 @@ namespace WebApplication1
 
 
             string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + strFileName + ";";
-            file_names_total += file_address;
+            profile_photo = file_address;
             src_path_total.Add(strFilePath);
         }
 
