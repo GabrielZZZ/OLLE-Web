@@ -16,8 +16,8 @@
         &nbsp;&nbsp;&nbsp; Troubleshoot</p>
     <p>&nbsp;<asp:ImageButton ID="ImageButton6" runat="server" AlternateText="Forum" Height="73px" ImageUrl="~/Images/forum.png" Width="73px" OnClick="ImageButton6_Click" />
         &nbsp;&nbsp;&nbsp; Feedback</p>
-    <p>&nbsp;<asp:ImageButton ID="ImageButton7" runat="server" AlternateText="Forum" Height="73px" ImageUrl="~/Images/setting.png" Width="73px" />
-        &nbsp;&nbsp;&nbsp; Settings</p>
+    <p>&nbsp;<asp:ImageButton ID="ImageButton7" runat="server" AlternateText="Forum" Height="73px" ImageUrl="~/Images/setting.png" Width="73px" OnClick="ImageButton7_Click" />
+        &nbsp;&nbsp;&nbsp; Account Settings</p>
 
 
 

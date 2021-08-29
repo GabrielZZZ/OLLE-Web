@@ -23,7 +23,7 @@ namespace WebApplication1
         protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
         {
             // open Calendar
-            //Response.Redirect("Forum.aspx?url=" + Request.CurrentExecutionFilePath + "&forum_index=" + 1 + "&label_name=Forum");
+            Response.Redirect("CalendarPage.aspx?url=" + Request.CurrentExecutionFilePath);
         }
 
         protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
@@ -48,6 +48,13 @@ namespace WebApplication1
         {
             // open Training
             Response.Redirect("Pages.aspx?url=" + Request.CurrentExecutionFilePath);
+        }
+
+        protected void ImageButton7_Click(object sender, ImageClickEventArgs e)
+        {
+            // account setting
+            Response.Redirect("Settings.aspx?url=" + Request.CurrentExecutionFilePath);
+
         }
     }
 }

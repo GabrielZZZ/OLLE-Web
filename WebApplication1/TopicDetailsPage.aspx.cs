@@ -201,6 +201,9 @@ namespace WebApplication1
         {
 
             files_url_split = Request.QueryString["files_url"].Split(';');
+
+            //string receivePath = 
+
             for (int i = 0; i < files_url_split.Length - 1; i++)
             {
                 using (WebClient web1 = new WebClient())
